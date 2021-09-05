@@ -1,5 +1,5 @@
 import React from 'react';
-import {Route} from 'react-router-dom';
+import {Switch,Route} from 'react-router-dom';
 
 // import Restaurant  from './components/basics/Restaurant'
 // import UseState from './components/hooks/UseState'
@@ -10,7 +10,7 @@ import './App.css'
 // import CovidData from './components/CovidData'
 import Homepage from './pages/components/homepage.component'
 import ShopPage from './pages/components/shop/shop.component';
-
+import Header from './components/header/header.component';
 const App = () => {
   return (
     <div>
@@ -21,8 +21,11 @@ const App = () => {
       {/* <Todo/> */}
       {/* <CovidData/> */} 
       {/* <Homepage />      */}
-      <Route exact path="/" component={Homepage} />
-      <Route exact path="/shop" component={ShopPage} />
+      <Header />
+      <Switch>
+        <Route exact path="/" component={Homepage} />
+        <Route path="/shop" component={ShopPage} />
+      </Switch>
     </div>
   )
 }
